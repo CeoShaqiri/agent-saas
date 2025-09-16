@@ -1,0 +1,9 @@
+{
+  "subscribers": [
+    {
+      "email": "test@example.com",
+      "clerkId": "",
+      "status": "active"
+    }
+  ]
+}
