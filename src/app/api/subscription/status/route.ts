@@ -13,7 +13,10 @@ export async function GET(req: Request) {
         const mod = await import("@clerk/nextjs/server");
         const auth = mod.getAuth(req as any);
         userId = auth.userId || null;
-        email = (auth as any)?.email || (auth as any)?.primaryEmailAddress?.email || null;
+        email =
+          (auth as any)?.email ||
+          (auth as any)?.primaryEmailAddress?.email ||
+          null;
       } catch (e) {
         // If Clerk import or getAuth fails, treat as unauthenticated.
         userId = null;

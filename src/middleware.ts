@@ -2,7 +2,8 @@ import { NextResponse } from "next/server";
 
 // By default use a no-op middleware to avoid runtime failures when Clerk
 // environment variables are not configured in local development.
-let _middleware: (...args: any[]) => any = (..._args: any[]) => NextResponse.next();
+let _middleware: (...args: any[]) => any = (..._args: any[]) =>
+  NextResponse.next();
 
 if (process.env.CLERK_SECRET_KEY) {
   // Dynamically import Clerk only when a secret key is present. If the
@@ -39,7 +40,7 @@ export const config = {
   matcher: [
     // Skip Next.js internals and all static files, unless found in search params
     "/((?!_next|[^?]*\\.(?:html?|css|js(?!on)|jpe?g|webp|png|gif|svg|ttf|woff2?|ico|csv|docx?|xlsx?|zip|webmanifest)).*)",
-  // Always run for API routes
-  "/(api|trpc)(.*)",
+    // Always run for API routes
+    "/(api|trpc)(.*)",
   ],
 };
